@@ -1,9 +1,12 @@
 https://braveliao.github.io/tags/index.html
 https://braveliao.github.io/2025/02/09/arthas/arthas/posts/undefined/
+https://braveliao.github.io/2025/02/09/tool/tool/posts/undefined/
 https://braveliao.github.io/about/index.html
 https://braveliao.github.io/categories/index.html
 https://braveliao.github.io/_posts/arthas/Arthas.html
+https://braveliao.github.io/_posts/tool/tool.html
 https://braveliao.github.io/
 https://braveliao.github.io/tags/Arthas/
 https://braveliao.github.io/tags/%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/
+https://braveliao.github.io/tags/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/
 https://braveliao.github.io/categories/Arthas/
