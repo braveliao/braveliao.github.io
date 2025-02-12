@@ -1,9 +1,9 @@
 ---
-title: Arthas
+title: Tool
 tags:
   - 常用工具
 categories:
-  - Arthas
+  - Tool
 abbrlink: 17349
 date: 2025-02-09 14:51:22
 ---
