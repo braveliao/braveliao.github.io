@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Spring Boot学习-手写ioc并理解核心原理</title>
+    <url>/2025/02/09/springboot-xue-xi/spring-xi-lie-zhi-ioc-de-yuan-li-ji-shou-dong-shi-xian/posts/undefined/</url>
+    <content><![CDATA[<h1 id="核心理解："><a href="#核心理解：" class="headerlink" title="核心理解："></a>核心理解：</h1><ol>
+<li>ioc的名字理解：全称为Inversion of Controller</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在传统的编程模型中，对象的创建和依赖关系是由程序本身显式控制的。也就是说，程序员需要手动创建对象并将它们注入到其他对象中。这种方式被称为 控制（Control），程序员有完全的控制权来管理对象的生命周期和依赖关系。</span><br><span class="line"></span><br><span class="line">而 控制反转（IoC） 则是将这些控制权从程序中反转到框架或容器中。换句话说，IoC 允许框架（如 Spring）负责对象的创建和管理，而程序员则无需手动控制对象的生命周期和依赖关系。对象的创建和注入是由 IoC 容器来管理的。</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>核心功能：对Bean进行管理，包括创建、使用、销毁等；</li>
+<li>ioc最核心的实现方式：依赖注入（DI）;</li>
+</ol>
+<h1 id="核心代码实现："><a href="#核心代码实现：" class="headerlink" title="核心代码实现："></a>核心代码实现：</h1><ol>
+<li>创建一个简单的接口和实现类：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 定义服务接口</span><br><span class="line">public interface GreetingService &#123;</span><br><span class="line">    void greet();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 实现 GreetingService</span><br><span class="line">public class GreetingServiceImpl implements GreetingService &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void greet() &#123;</span><br><span class="line">        System.out.println(&quot;Hello, welcome to IoC container!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.创建一个简单的ioc容器</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">// 简单的 IoC 容器实现</span><br><span class="line">public class SimpleIoCContainer &#123;</span><br><span class="line">    private Map&lt;Class&lt;?&gt;, Object&gt; container = new HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    // 注册对象到容器</span><br><span class="line">    public void register(Class&lt;?&gt; clazz, Object object) &#123;</span><br><span class="line">        container.put(clazz, object);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 根据类型获取对象</span><br><span class="line">    public &lt;T&gt; T getBean(Class&lt;T&gt; clazz) &#123;</span><br><span class="line">        return clazz.cast(container.get(clazz));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>使用ioc容器</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">// 简单的 IoC 容器实现</span><br><span class="line">public class SimpleIoCContainer &#123;</span><br><span class="line">    private Map&lt;Class&lt;?&gt;, Object&gt; container = new HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    // 注册对象到容器</span><br><span class="line">    public void register(Class&lt;?&gt; clazz, Object object) &#123;</span><br><span class="line">        container.put(clazz, object);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 根据类型获取对象</span><br><span class="line">    public &lt;T&gt; T getBean(Class&lt;T&gt; clazz) &#123;</span><br><span class="line">        return clazz.cast(container.get(clazz));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Spring Boot</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Arthas</title>
     <url>/2025/02/09/arthas/arthas/posts/undefined/</url>
     <content><![CDATA[<ul>
@@ -120,10 +148,94 @@ tt -i 1000  -w &#39;target.getApplicationContext().getEnvironment().getProperty(
       </tags>
   </entry>
   <entry>
+    <title></title>
+    <url>/2025/02/18/tool/p6-ti-sheng/posts/undefined/</url>
+    <content><![CDATA[<p>P6提升</p>
+<ul>
+<li><p>知识图谱</p>
+<ul>
+<li>源码：Spring Boot启动源码分析、Netty源码分析</li>
+<li>Java基础能力提升：jvm、多线程</li>
+<li>设计模式：</li>
+</ul>
+</li>
+<li><p>绩效目标</p>
+<ul>
+<li>Spring核心原理：<ul>
+<li>熟悉、了解Spring源码与核心原理；</li>
+<li>Spring时序图绘制：<ul>
+<li>手绘SpringIOC运行时序图</li>
+<li>SpringDI运行时许图、SpringAOP运行时序图</li>
+<li>SpringAOP运行时序图</li>
+<li>SpringMVC运行时序图</li>
+</ul>
+</li>
+<li>手写实战：用300行代码手写提炼Spring的核心原理；</li>
+</ul>
+</li>
+<li>设计模式：<ul>
+<li>熟悉、了解，以及应用常用设计模式，博阿酷哦：创建型模式、结构型模式、行为模式</li>
+<li>个设计模式对比总结以及应用场景分析</li>
+</ul>
+</li>
+<li>高性能NIO框架：<ul>
+<li>Netty初体验:Netty与NIO前世今生；基于Netty手写Tomcat，基于Netty重构RPC框架；</li>
+<li>Netty实战篇:基于Netty手写消息推送系统，单机百万链接与应用级性能调优；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>具体实施</p>
+<ul>
+<li>记录：比较记录到csdn，新建一个目录：P6提升；</li>
+<li>目标：保证每周一篇更新吧；</li>
+<li>学习方式：<ul>
+<li>采用B站的视频学习；</li>
+<li>书籍学习；</li>
+<li>时间安排：固定周天上午4h；爬山的时候带耳机，听B站视频</li>
+<li>学习场所：工商大学自习室；</li>
+<li>需要购买一个蓝牙运动耳机；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>名录：</p>
+<ul>
+<li>B站视频：马士兵源码“三部曲”：Spring源码-MyBatis源码-SpringBoot源码，【2022最强版】一举通关！（<a href="https://www.bilibili.com/video/BV1Z44y1b775/?buvid=XUC840DC28920F2EA8E3AFDAF154210CFF10A&from_spmid=playlist.playlist-detail.0.0&is_story_h5=false&mid=4+D4RgLHSLuL306fKNSviA==&p=1&plat_id=116&share_from=ugc&share_medium=android&share_plat=android&share_session_id=fabe24c7-2f40-47b3-a229-360657eab331&share_source=WEIXIN&share_tag=s_i&spmid=united.player-video-detail.0.0&timestamp=1737863196&unique_k=NwynEat&up_id=2081613871%EF%BC%89">https://www.bilibili.com/video/BV1Z44y1b775/?buvid=XUC840DC28920F2EA8E3AFDAF154210CFF10A&amp;from_spmid=playlist.playlist-detail.0.0&amp;is_story_h5=false&amp;mid=4%2BD4RgLHSLuL306fKNSviA%3D%3D&amp;p=1&amp;plat_id=116&amp;share_from=ugc&amp;share_medium=android&amp;share_plat=android&amp;share_session_id=fabe24c7-2f40-47b3-a229-360657eab331&amp;share_source=WEIXIN&amp;share_tag=s_i&amp;spmid=united.player-video-detail.0.0&amp;timestamp=1737863196&amp;unique_k=NwynEat&amp;up_id=2081613871）</a></li>
+<li>书籍：Netty 权威指南（第2版）、Java核心技术 卷I 基础知识</li>
+</ul>
+</li>
+<li><p>实施细则：</p>
+<ol>
+<li>SpringBoot的学习：</li>
+</ol>
+<ul>
+<li>Spring系列之IOC的原理及手动实现 <a href="https://juejin.cn/post/6844903736456773646?searchId=20250205140648F396238176583D8137E7">https://juejin.cn/post/6844903736456773646?searchId=20250205140648F396238176583D8137E7</a></li>
+</ul>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>Tool</title>
     <url>/2025/02/09/tool/tool/posts/undefined/</url>
     <content><![CDATA[<h3 id="1-在线json格式化"><a href="#1-在线json格式化" class="headerlink" title="1. 在线json格式化"></a>1. 在线json格式化</h3><p><a href="https://www.json.cn/">https://www.json.cn/</a></p>
 <h3 id="2-AI问答工具"><a href="#2-AI问答工具" class="headerlink" title="2. AI问答工具"></a>2. AI问答工具</h3><p><a href="https://chatgpt.com/">https://chatgpt.com/</a></p>
+<h3 id="3-idea绘制uml"><a href="#3-idea绘制uml" class="headerlink" title="3. idea绘制uml"></a>3. idea绘制uml</h3><ul>
+<li>安装PlantUML插件</li>
+</ul>
+<ol>
+<li>打开 IntelliJ IDEA。</li>
+<li>在顶部菜单栏选择 File -&gt; Settings。</li>
+<li>在设置窗口中，选择 Plugins。</li>
+<li>搜索 PlantUML，点击 Install 按钮进行安装。</li>
+<li>安装完成后，重启 IntelliJ IDEA。</li>
+</ol>
+<ul>
+<li>PlantUML代码参考</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@startuml</span><br><span class="line">actor 运营 as User</span><br><span class="line">participant 管理系统 as ManagementSystem</span><br><span class="line">participant xx as API</span><br><span class="line"></span><br><span class="line">User -&gt; ManagementSystem : 创建会议并获取会议ID</span><br><span class="line">note right of User</span><br><span class="line">    会议ID从xx官网创建得到</span><br><span class="line">end note</span><br><span class="line">ManagementSystem -&gt; API : 调用API接口获取会议详情</span><br><span class="line">API -&gt; ManagementSystem : 返回会议详情</span><br><span class="line">ManagementSystem -&gt; ManagementSystem : 填充会议详情到系统</span><br><span class="line">ManagementSystem -&gt; User : 完成录入</span><br><span class="line">@enduml</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>Tool</category>
