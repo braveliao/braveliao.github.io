@@ -148,75 +148,6 @@ tt -i 1000  -w &#39;target.getApplicationContext().getEnvironment().getProperty(
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2025/02/18/tool/p6-ti-sheng/posts/undefined/</url>
-    <content><![CDATA[<p>P6提升</p>
-<ul>
-<li><p>知识图谱</p>
-<ul>
-<li>源码：Spring Boot启动源码分析、Netty源码分析</li>
-<li>Java基础能力提升：jvm、多线程</li>
-<li>设计模式：</li>
-</ul>
-</li>
-<li><p>绩效目标</p>
-<ul>
-<li>Spring核心原理：<ul>
-<li>熟悉、了解Spring源码与核心原理；</li>
-<li>Spring时序图绘制：<ul>
-<li>手绘SpringIOC运行时序图</li>
-<li>SpringDI运行时许图、SpringAOP运行时序图</li>
-<li>SpringAOP运行时序图</li>
-<li>SpringMVC运行时序图</li>
-</ul>
-</li>
-<li>手写实战：用300行代码手写提炼Spring的核心原理；</li>
-</ul>
-</li>
-<li>设计模式：<ul>
-<li>熟悉、了解，以及应用常用设计模式，博阿酷哦：创建型模式、结构型模式、行为模式</li>
-<li>个设计模式对比总结以及应用场景分析</li>
-</ul>
-</li>
-<li>高性能NIO框架：<ul>
-<li>Netty初体验:Netty与NIO前世今生；基于Netty手写Tomcat，基于Netty重构RPC框架；</li>
-<li>Netty实战篇:基于Netty手写消息推送系统，单机百万链接与应用级性能调优；</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>具体实施</p>
-<ul>
-<li>记录：比较记录到csdn，新建一个目录：P6提升；</li>
-<li>目标：保证每周一篇更新吧；</li>
-<li>学习方式：<ul>
-<li>采用B站的视频学习；</li>
-<li>书籍学习；</li>
-<li>时间安排：固定周天上午4h；爬山的时候带耳机，听B站视频</li>
-<li>学习场所：工商大学自习室；</li>
-<li>需要购买一个蓝牙运动耳机；</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>名录：</p>
-<ul>
-<li>B站视频：马士兵源码“三部曲”：Spring源码-MyBatis源码-SpringBoot源码，【2022最强版】一举通关！（<a href="https://www.bilibili.com/video/BV1Z44y1b775/?buvid=XUC840DC28920F2EA8E3AFDAF154210CFF10A&from_spmid=playlist.playlist-detail.0.0&is_story_h5=false&mid=4+D4RgLHSLuL306fKNSviA==&p=1&plat_id=116&share_from=ugc&share_medium=android&share_plat=android&share_session_id=fabe24c7-2f40-47b3-a229-360657eab331&share_source=WEIXIN&share_tag=s_i&spmid=united.player-video-detail.0.0&timestamp=1737863196&unique_k=NwynEat&up_id=2081613871%EF%BC%89">https://www.bilibili.com/video/BV1Z44y1b775/?buvid=XUC840DC28920F2EA8E3AFDAF154210CFF10A&amp;from_spmid=playlist.playlist-detail.0.0&amp;is_story_h5=false&amp;mid=4%2BD4RgLHSLuL306fKNSviA%3D%3D&amp;p=1&amp;plat_id=116&amp;share_from=ugc&amp;share_medium=android&amp;share_plat=android&amp;share_session_id=fabe24c7-2f40-47b3-a229-360657eab331&amp;share_source=WEIXIN&amp;share_tag=s_i&amp;spmid=united.player-video-detail.0.0&amp;timestamp=1737863196&amp;unique_k=NwynEat&amp;up_id=2081613871）</a></li>
-<li>书籍：Netty 权威指南（第2版）、Java核心技术 卷I 基础知识</li>
-</ul>
-</li>
-<li><p>实施细则：</p>
-<ol>
-<li>SpringBoot的学习：</li>
-</ol>
-<ul>
-<li>Spring系列之IOC的原理及手动实现 <a href="https://juejin.cn/post/6844903736456773646?searchId=20250205140648F396238176583D8137E7">https://juejin.cn/post/6844903736456773646?searchId=20250205140648F396238176583D8137E7</a></li>
-</ul>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>Tool</title>
     <url>/2025/02/09/tool/tool/posts/undefined/</url>
     <content><![CDATA[<h3 id="1-在线json格式化"><a href="#1-在线json格式化" class="headerlink" title="1. 在线json格式化"></a>1. 在线json格式化</h3><p><a href="https://www.json.cn/">https://www.json.cn/</a></p>
@@ -236,6 +167,7 @@ tt -i 1000  -w &#39;target.getApplicationContext().getEnvironment().getProperty(
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@startuml</span><br><span class="line">actor 运营 as User</span><br><span class="line">participant 管理系统 as ManagementSystem</span><br><span class="line">participant xx as API</span><br><span class="line"></span><br><span class="line">User -&gt; ManagementSystem : 创建会议并获取会议ID</span><br><span class="line">note right of User</span><br><span class="line">    会议ID从xx官网创建得到</span><br><span class="line">end note</span><br><span class="line">ManagementSystem -&gt; API : 调用API接口获取会议详情</span><br><span class="line">API -&gt; ManagementSystem : 返回会议详情</span><br><span class="line">ManagementSystem -&gt; ManagementSystem : 填充会议详情到系统</span><br><span class="line">ManagementSystem -&gt; User : 完成录入</span><br><span class="line">@enduml</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<h3 id="4-协作软件"><a href="#4-协作软件" class="headerlink" title="4. 协作软件"></a>4. 协作软件</h3><p><a href="https://worktile.com/">https://worktile.com/</a></p>
 ]]></content>
       <categories>
         <category>Tool</category>
@@ -243,5 +175,10 @@ tt -i 1000  -w &#39;target.getApplicationContext().getEnvironment().getProperty(
       <tags>
         <tag>常用工具</tag>
       </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2025/02/24/tool/p6-ti-sheng/posts/undefined/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
