@@ -1,34 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Spring Boot学习-手写ioc并理解核心原理</title>
-    <url>/2025/02/09/springboot-xue-xi/spring-xi-lie-zhi-ioc-de-yuan-li-ji-shou-dong-shi-xian/posts/undefined/</url>
-    <content><![CDATA[<h1 id="核心理解："><a href="#核心理解：" class="headerlink" title="核心理解："></a>核心理解：</h1><ol>
-<li>ioc的名字理解：全称为Inversion of Controller</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在传统的编程模型中，对象的创建和依赖关系是由程序本身显式控制的。也就是说，程序员需要手动创建对象并将它们注入到其他对象中。这种方式被称为 控制（Control），程序员有完全的控制权来管理对象的生命周期和依赖关系。</span><br><span class="line"></span><br><span class="line">而 控制反转（IoC） 则是将这些控制权从程序中反转到框架或容器中。换句话说，IoC 允许框架（如 Spring）负责对象的创建和管理，而程序员则无需手动控制对象的生命周期和依赖关系。对象的创建和注入是由 IoC 容器来管理的。</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>核心功能：对Bean进行管理，包括创建、使用、销毁等；</li>
-<li>ioc最核心的实现方式：依赖注入（DI）;</li>
-</ol>
-<h1 id="核心代码实现："><a href="#核心代码实现：" class="headerlink" title="核心代码实现："></a>核心代码实现：</h1><ol>
-<li>创建一个简单的接口和实现类：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 定义服务接口</span><br><span class="line">public interface GreetingService &#123;</span><br><span class="line">    void greet();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 实现 GreetingService</span><br><span class="line">public class GreetingServiceImpl implements GreetingService &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void greet() &#123;</span><br><span class="line">        System.out.println(&quot;Hello, welcome to IoC container!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2.创建一个简单的ioc容器</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">// 简单的 IoC 容器实现</span><br><span class="line">public class SimpleIoCContainer &#123;</span><br><span class="line">    private Map&lt;Class&lt;?&gt;, Object&gt; container = new HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    // 注册对象到容器</span><br><span class="line">    public void register(Class&lt;?&gt; clazz, Object object) &#123;</span><br><span class="line">        container.put(clazz, object);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 根据类型获取对象</span><br><span class="line">    public &lt;T&gt; T getBean(Class&lt;T&gt; clazz) &#123;</span><br><span class="line">        return clazz.cast(container.get(clazz));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>使用ioc容器</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">// 简单的 IoC 容器实现</span><br><span class="line">public class SimpleIoCContainer &#123;</span><br><span class="line">    private Map&lt;Class&lt;?&gt;, Object&gt; container = new HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    // 注册对象到容器</span><br><span class="line">    public void register(Class&lt;?&gt; clazz, Object object) &#123;</span><br><span class="line">        container.put(clazz, object);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 根据类型获取对象</span><br><span class="line">    public &lt;T&gt; T getBean(Class&lt;T&gt; clazz) &#123;</span><br><span class="line">        return clazz.cast(container.get(clazz));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Spring Boot</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Arthas</title>
     <url>/2025/02/09/arthas/arthas/posts/undefined/</url>
     <content><![CDATA[<ul>
@@ -148,9 +120,45 @@ tt -i 1000  -w &#39;target.getApplicationContext().getEnvironment().getProperty(
       </tags>
   </entry>
   <entry>
+    <title>Spring Boot学习-手写ioc并理解核心原理</title>
+    <url>/2025/02/09/springboot-xue-xi/spring-xi-lie-zhi-ioc-de-yuan-li-ji-shou-dong-shi-xian/posts/undefined/</url>
+    <content><![CDATA[<h1 id="核心理解："><a href="#核心理解：" class="headerlink" title="核心理解："></a>核心理解：</h1><ol>
+<li>ioc的名字理解：全称为Inversion of Controller</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在传统的编程模型中，对象的创建和依赖关系是由程序本身显式控制的。也就是说，程序员需要手动创建对象并将它们注入到其他对象中。这种方式被称为 控制（Control），程序员有完全的控制权来管理对象的生命周期和依赖关系。</span><br><span class="line"></span><br><span class="line">而 控制反转（IoC） 则是将这些控制权从程序中反转到框架或容器中。换句话说，IoC 允许框架（如 Spring）负责对象的创建和管理，而程序员则无需手动控制对象的生命周期和依赖关系。对象的创建和注入是由 IoC 容器来管理的。</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>核心功能：对Bean进行管理，包括创建、使用、销毁等；</li>
+<li>ioc最核心的实现方式：依赖注入（DI）;</li>
+</ol>
+<h1 id="核心代码实现："><a href="#核心代码实现：" class="headerlink" title="核心代码实现："></a>核心代码实现：</h1><ol>
+<li>创建一个简单的接口和实现类：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 定义服务接口</span><br><span class="line">public interface GreetingService &#123;</span><br><span class="line">    void greet();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 实现 GreetingService</span><br><span class="line">public class GreetingServiceImpl implements GreetingService &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void greet() &#123;</span><br><span class="line">        System.out.println(&quot;Hello, welcome to IoC container!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.创建一个简单的ioc容器</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">// 简单的 IoC 容器实现</span><br><span class="line">public class SimpleIoCContainer &#123;</span><br><span class="line">    private Map&lt;Class&lt;?&gt;, Object&gt; container = new HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    // 注册对象到容器</span><br><span class="line">    public void register(Class&lt;?&gt; clazz, Object object) &#123;</span><br><span class="line">        container.put(clazz, object);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 根据类型获取对象</span><br><span class="line">    public &lt;T&gt; T getBean(Class&lt;T&gt; clazz) &#123;</span><br><span class="line">        return clazz.cast(container.get(clazz));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>使用ioc容器</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">// 简单的 IoC 容器实现</span><br><span class="line">public class SimpleIoCContainer &#123;</span><br><span class="line">    private Map&lt;Class&lt;?&gt;, Object&gt; container = new HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    // 注册对象到容器</span><br><span class="line">    public void register(Class&lt;?&gt; clazz, Object object) &#123;</span><br><span class="line">        container.put(clazz, object);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 根据类型获取对象</span><br><span class="line">    public &lt;T&gt; T getBean(Class&lt;T&gt; clazz) &#123;</span><br><span class="line">        return clazz.cast(container.get(clazz));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Spring Boot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2025/03/05/tool/p6-ti-sheng/posts/undefined/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>Tool</title>
     <url>/2025/02/09/tool/tool/posts/undefined/</url>
-    <content><![CDATA[<h3 id="1-在线json格式化"><a href="#1-在线json格式化" class="headerlink" title="1. 在线json格式化"></a>1. 在线json格式化</h3><p><a href="https://www.json.cn/">https://www.json.cn/</a></p>
+    <content><![CDATA[<h3 id="1-字符串处理工具"><a href="#1-字符串处理工具" class="headerlink" title="1. 字符串处理工具"></a>1. 字符串处理工具</h3><ul>
+<li>json工具 <a href="https://www.json.cn/">https://www.json.cn/</a></li>
+<li>字符串压缩 <a href="https://www.txttool.com/t/?id=NDc3">https://www.txttool.com/t/?id=NDc3</a></li>
+</ul>
 <h3 id="2-AI问答工具"><a href="#2-AI问答工具" class="headerlink" title="2. AI问答工具"></a>2. AI问答工具</h3><p><a href="https://chatgpt.com/">https://chatgpt.com/</a></p>
 <h3 id="3-idea绘制uml"><a href="#3-idea绘制uml" class="headerlink" title="3. idea绘制uml"></a>3. idea绘制uml</h3><ul>
 <li>安装PlantUML插件</li>
@@ -175,10 +183,5 @@ tt -i 1000  -w &#39;target.getApplicationContext().getEnvironment().getProperty(
       <tags>
         <tag>常用工具</tag>
       </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2025/02/24/tool/p6-ti-sheng/posts/undefined/</url>
-    <content><![CDATA[]]></content>
   </entry>
 </search>
