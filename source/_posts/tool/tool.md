@@ -8,8 +8,9 @@ abbrlink: 17349
 date: 2025-02-09 14:51:22
 ---
 
-### 1. 在线json格式化
-https://www.json.cn/
+### 1. 字符串处理工具
+* json工具 https://www.json.cn/
+* 字符串压缩 https://www.txttool.com/t/?id=NDc3
 
 ### 2. AI问答工具
 https://chatgpt.com/
