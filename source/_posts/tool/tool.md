@@ -8,9 +8,10 @@ abbrlink: 17349
 date: 2025-02-09 14:51:22
 ---
 
-### 1. 字符串处理工具
+### 1. 在线工具
 * json工具 https://www.json.cn/
 * 字符串压缩 https://www.txttool.com/t/?id=NDc3
+* uml在线绘制：https://www.mermaidchart.com/
 
 ### 2. AI问答工具
 https://chatgpt.com/
